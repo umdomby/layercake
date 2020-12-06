@@ -8,12 +8,13 @@
 </head>
 <body>
 
-<!--<p th:text="'Hello, ' + ${title} + '!'" />-->
+
 
 <header th:insert="blocks/header :: header"></header>
 
 <div class="container mt-5">
     <h1>Блог сайта</h1>
+    <p th:text="'Hello, ' + ${title} + '!'" />
     <div th:each="el : ${posts}" class="alert alert-info mt-2">
         <h3 th:text="${el.title}"> </h3>
         <p th:text="${el.anons}"> </p>

@@ -46,7 +46,7 @@ public class HomeAboutController {
 
     @GetMapping("/blog-main-test")
     public String blogTest(Model model){
-        model.addAttribute("title", "О блоге //BlogController --> blog-home-test.html");
+        model.addAttribute("title", "Home controllerHome");
         Iterable<Blog> posts = repoBlog.findAll();
         model.addAttribute("posts", posts);
         return "blog-main-test";
