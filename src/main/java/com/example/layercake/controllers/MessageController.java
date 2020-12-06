@@ -41,7 +41,6 @@ public class MessageController {
         return "redirect:/message";
     }
 
-
     @GetMapping("/message/{id}")
     public String messageDetails(@PathVariable(value = "id") long id, Model model){
         if(!repoMessage.existsById(id)){
@@ -76,13 +75,11 @@ public class MessageController {
         return "redirect:/message";
     }
 
-
     @PostMapping("/message/{id}/remove")
     public String messageDelete(@PathVariable(value = "id") long id, Model model){
         Message postmessage = repoMessage.findById(id).orElseThrow(IllegalStateException::new);
         repoMessage.delete(postmessage);
         return "redirect:/blog";
     }
-
 
 }

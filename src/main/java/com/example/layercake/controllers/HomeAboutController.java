@@ -1,7 +1,9 @@
 package com.example.layercake.controllers;
 
 
+import com.example.layercake.model.Blog;
 import com.example.layercake.model.Message;
+import com.example.layercake.repo.RepoBlog;
 import com.example.layercake.repo.RepoMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,9 @@ public class HomeAboutController {
 
     @Autowired
     private RepoMessage repoMessage;
+
+    @Autowired
+    private RepoBlog repoBlog;
 
     @GetMapping("/")
     public String main(Model model) {
@@ -33,11 +38,25 @@ public class HomeAboutController {
         return "about";
     }
 
-    @GetMapping("/main")
+    @GetMapping("/home-test")
     public String main2(Model model) {
+        model.addAttribute("title", "Main2");
+        return "home-test";
+    }
+
+    @GetMapping("/blog-main-test")
+    public String blogTest(Model model){
+        model.addAttribute("title", "О блоге //BlogController --> blog-home-test.html");
+        Iterable<Blog> posts = repoBlog.findAll();
+        model.addAttribute("posts", posts);
+        return "blog-main-test";
+    }
+
+    @GetMapping("/message-main-test")
+    public String messageTest(Model model) {
         Iterable<Message> messages = repoMessage.findAll();
         model.addAttribute("messages", messages);
-        return "main";
+        return "message-main-test";
     }
 
 }
