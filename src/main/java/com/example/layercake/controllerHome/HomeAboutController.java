@@ -1,4 +1,4 @@
-package com.example.layercake.controllers;
+package com.example.layercake.controllerHome;
 
 
 import com.example.layercake.model.Blog;
