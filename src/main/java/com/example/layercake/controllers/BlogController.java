@@ -22,7 +22,7 @@ public class BlogController {
 
     @GetMapping("/blog")
     public String blogMain(Model model){
-//        model.addAttribute("title", "О блоге");
+        model.addAttribute("title", "О блоге //BlogController --> blog-home-test.html");
         Iterable<Blog> posts = repoBlog.findAll();
         model.addAttribute("posts", posts);
         return "html-blog/blog-main";
